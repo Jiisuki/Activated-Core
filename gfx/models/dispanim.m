@@ -1,0 +1,209 @@
+function varargout = dispanim(varargin)
+% DISPANIM M-file for dispanim.fig
+%      DISPANIM, by itself, creates a new DISPANIM or raises the existing
+%      singleton*.
+%
+%      H = DISPANIM returns the handle to a new DISPANIM or the handle to
+%      the existing singleton*.
+%
+%      DISPANIM('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in DISPANIM.M with the given input arguments.
+%
+%      DISPANIM('Property','Value',...) creates a new DISPANIM or raises the
+%      existing singleton*.  Starting from the left, property value pairs are
+%      applied to the GUI before dispanim_OpeningFcn gets called.  An
+%      unrecognized property name or invalid value makes property application
+%      stop.  All inputs are passed to dispanim_OpeningFcn via varargin.
+%
+%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+%      instance to run (singleton)".
+%
+% See also: GUIDE, GUIDATA, GUIHANDLES
+
+% Edit the above text to modify the response to help dispanim
+
+% Last Modified by GUIDE v2.5 03-May-2011 11:14:32
+
+% Begin initialization code - DO NOT EDIT
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @dispanim_OpeningFcn, ...
+                   'gui_OutputFcn',  @dispanim_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+% End initialization code - DO NOT EDIT
+
+
+% --- Executes just before dispanim is made visible.
+function dispanim_OpeningFcn(hObject, eventdata, handles, varargin)
+% This function has no output args, see OutputFcn.
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% varargin   command line arguments to dispanim (see VARARGIN)
+global img;
+
+% Choose default command line output for dispanim
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+% UIWAIT makes dispanim wait for user response (see UIRESUME)
+% uiwait(handles.figure1);
+
+
+% --- Outputs from this function are returned to the command line.
+function varargout = dispanim_OutputFcn(hObject, eventdata, handles) 
+% varargout  cell array for returning output args (see VARARGOUT);
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Get default command line output from handles structure
+varargout{1} = handles.output;
+
+
+% --- Executes on button press in pushbutton1.
+function pushbutton1_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global img;
+[filename, pathname] = uigetfile( ...
+       {'*.bmp'}, ...
+        'Pick a file');
+img = imread([pathname filename]);
+
+% --- Executes on button press in pushbutton2.
+function pushbutton2_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global img;
+
+
+
+w = str2double(get(findobj('Tag','txtw'),'String'));
+h = str2double(get(findobj('Tag','txth'),'String'));
+offs = str2double(get(findobj('Tag','txts'),'String'));
+len = str2double(get(findobj('Tag','txtl'),'String'));
+
+x = 0;
+runstate = get(hObject,'Value');
+while(runstate)
+  imagesc(img(offs+1:offs+h,x+1:x+w,:),'Parent',findobj('Tag','axes1'));
+  axis image;
+  drawnow;
+  x = x + w;
+  if( x > (len*w-1) )
+    x = 0;
+  end;
+  pause(0.1);
+  runstate = get(hObject,'Value');
+end;
+% Hint: get(hObject,'Value') returns toggle state of pushbutton2
+
+
+
+function txtw_Callback(hObject, eventdata, handles)
+% hObject    handle to txtw (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of txtw as text
+%        str2double(get(hObject,'String')) returns contents of txtw as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function txtw_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to txtw (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function txth_Callback(hObject, eventdata, handles)
+% hObject    handle to txth (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of txth as text
+%        str2double(get(hObject,'String')) returns contents of txth as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function txth_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to txth (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function txtl_Callback(hObject, eventdata, handles)
+% hObject    handle to txtl (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of txtl as text
+%        str2double(get(hObject,'String')) returns contents of txtl as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function txtl_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to txtl (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function txts_Callback(hObject, eventdata, handles)
+% hObject    handle to txts (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of txts as text
+%        str2double(get(hObject,'String')) returns contents of txts as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function txts_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to txts (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+

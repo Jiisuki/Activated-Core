@@ -1,0 +1,7 @@
+ActivatedCore:
+	g++ -Wall -lX11 -lglut -lGL -lGLU -lm -L./lib -lminifmod -lstdc++ main.cpp -o ../main.out
+	chmod +x ../main.out
+#	./bin/main.out
+clean:
+	rm ../main.out
+

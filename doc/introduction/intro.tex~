@@ -1,0 +1,16 @@
+\section{What is \ac?}
+
+\begin{quote}
+  \large{\textit{\ac\ is a game which intends to mix several game genres, including platforming, action, puzzle and more. The first version was only a tile based platformer, which then expanded beyond the tiles with large bitmapped maps. This allowed for fast rendering which was needed back in the days. The game was originally programmed in Visual Basic, using the extraordinary powers of DirectDraw 4 in the DirectX library. This was year 2004. By the means of switching permanently to Linux, the development of this version faded gradually and eventually died out, until May 20:th 2010. The game development was then restarted, resulting in a completely rewritten game engine in C/C++ using OpenGL and GLUT.}}
+\end{quote}
+
+
+%=================================================================
+%clearpage
+\subsection{\textit{Basic Story}}
+\hrule\par
+%=================================================================
+Our character, \cn, was given a mission to explore a distant planet. On her way back to earth, she discovered at a distance that the earch atmosphere now have a purple hue. As she is getting closer and closer she picks up a transmission from earth\ldots
+
+The distress call mentioning something about foreign lifeforms converting earth into a machine, before it vanishes. When entering through the atmosphere, a virus enteres the onboard computers which causes the shields to go down. There's only a short matter of time before the ship breaks down and crashes.
+

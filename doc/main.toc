@@ -1,0 +1,34 @@
+\select@language {swedish}
+\select@language {english}
+\contentsline {section}{\numberline {1}What is \textbf {Activated Core}?}{5}
+\contentsline {subsection}{\numberline {1.1}\textit {Basic Story}}{5}
+\contentsline {section}{\numberline {2}How do I Play \textbf {Activated Core}?}{6}
+\contentsline {subsection}{\numberline {2.1}\textit {Installing \textbf {Activated Core}}}{6}
+\contentsline {subsubsection}{\numberline {2.1.1}Installing From Source}{6}
+\contentsline {subsubsection}{\numberline {2.1.2}Precompiled Package}{6}
+\contentsline {subsection}{\numberline {2.2}\textit {Starting \textbf {Activated Core}\ for the First Time}}{7}
+\contentsline {subsection}{\numberline {2.3}\textit {Standard Controls}}{8}
+\contentsline {subsection}{\numberline {2.4}\textit {Mission Begins -- Playing the First Level}}{9}
+\contentsline {section}{\numberline {3}\textbf {Activated Core}\ Gameplay}{10}
+\contentsline {subsection}{\numberline {3.1}\textit {Difficulty Settings}}{10}
+\contentsline {subsubsection}{\numberline {3.1.1}Quick Comparison}{11}
+\contentsline {subsubsection}{\numberline {3.1.2}Normal}{12}
+\contentsline {subsubsection}{\numberline {3.1.3}High School}{12}
+\contentsline {subsubsection}{\numberline {3.1.4}Masters Degree}{12}
+\contentsline {subsubsection}{\numberline {3.1.5}Professor}{12}
+\contentsline {subsection}{\numberline {3.2}\textit {Mixed Gameplay}}{14}
+\contentsline {subsubsection}{\numberline {3.2.1}Platforming}{14}
+\contentsline {subsubsection}{\numberline {3.2.2}Action}{14}
+\contentsline {subsubsection}{\numberline {3.2.3}Puzzle}{14}
+\contentsline {section}{\numberline {4}Developing Own Game Content for \textbf {Activated Core}}{15}
+\contentsline {subsection}{\numberline {4.1}\textit {Creating Maps/Levels}}{15}
+\contentsline {subsubsection}{\numberline {4.1.1}Main Mapfile}{16}
+\contentsline {subsubsection}{\numberline {4.1.2}Available Basic Objects}{17}
+\contentsline {subsubsection}{\numberline {4.1.3}Information Objects and Weapons}{18}
+\contentsline {subsubsection}{\numberline {4.1.4}Moving Objects}{18}
+\contentsline {subsubsection}{\numberline {4.1.5}Pickup Items and General Upgrades}{19}
+\contentsline {subsubsection}{\numberline {4.1.6}Main Map Graphics (skin)}{20}
+\contentsline {subsubsection}{\numberline {4.1.7}Background Graphics (optional)}{20}
+\contentsline {subsubsection}{\numberline {4.1.8}Main Collision Map}{20}
+\contentsline {section}{\numberline {5}Tips from the Professor}{21}
+\contentsline {subsection}{\numberline {5.1}\textit {Cracking the Codes}}{21}

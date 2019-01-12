@@ -1,0 +1,485 @@
+\documentclass[a5paper, 10pt, titlepage, landscape, twoside, final]{article}
+
+\usepackage[margin=2cm,nohead]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[english,swedish]{babel}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{multicol}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1.5ex}
+
+\usepackage[usenames,dvipsnames]{color}
+\definecolor{MyDarkGreen}{rgb}{0.0,0.4,0.0}
+\definecolor{MyRed}{rgb}{1,0,0}
+
+
+
+\newcommand{\ac}{\textbf{Activated Core}}
+\newcommand{\cn}{\textbf{Include Character Name}}
+
+
+% TITLE PAGE INFORMATION:
+%=====================================================================
+\title{
+  \includegraphics[height=6cm]{devintro.eps} \\
+  %\mbox{} \\
+  %\Huge{Activated Core} \\
+  %\mbox{} \\
+  %\Large{\textsc{Manual}}
+}
+\author{\texttt{\small http://activate.jiisuki.net}}
+\date{\footnotesize Last Update: \today}
+%=====================================================================
+
+\begin{document}
+\selectlanguage{english}
+
+\begin{center}
+\includegraphics[width=17cm]{devintro.eps}
+\end{center}
+%\maketitle
+
+\clearpage
+\tableofcontents
+
+%=================================================================
+\clearpage
+\begin{center}
+\section{What is \ac?}
+\end{center}
+%=================================================================
+%
+\begin{quote}
+  \large{\textit{\ac\ is a game which intends to mix several game genres, including platforming, action, puzzle and more. The first version was only a tile based platformer, which then expanded beyond the tiles with large bitmapped maps. This allowed for fast rendering which was needed back in the days. The game was originally programmed in Visual Basic, using the extraordinary powers of DirectDraw 4 in the DirectX library. This was year 2004. By the means of switching permanently to Linux, the development of this version faded gradually and eventually died out, until May 20:th 2010. The game development was then restarted, resulting in a completely rewritten game engine in C/C++ using OpenGL and GLUT.}}
+\end{quote}
+
+%=================================================================
+%clearpage
+\begin{center}
+\subsection{\textit{Basic Story}}
+\end{center}
+\hrule\par
+%=================================================================
+%
+Our character, \cn, was given a mission to explore a distant planet. On her way back to earth, she discovered at a distance that the earch atmosphere now have a purple hue. As she is getting closer and closer she picks up a transmission from earth\ldots
+
+The distress call mentioning something about foreign lifeforms converting earth into a machine, before it vanishes. When entering through the atmosphere, a virus enteres the onboard computers which causes the shields to go down. There's only a short matter of time before the ship breaks down and crashes.
+
+By entering a cave, near the crash site, she discoveres a hive of alien lifeforms, operating on the earth's soil. She begins an infiltration process of an alien vessel buried deep inside the cave.
+
+
+
+
+
+%=================================================================
+\clearpage
+\begin{center}
+\section{How do I Play \ac?}
+\end{center}
+%=================================================================
+%
+\begin{quote}
+  \centering
+  \large{\textit{Time to prepare yourself for an adventure to the core of the earth!}}
+\end{quote}
+
+%=================================================================
+%clearpage
+\begin{center}
+\subsection{\textit{Installing \ac}}
+\end{center}
+\hrule\par
+%=================================================================
+%
+\ac\ is somewhat self contained, and does therefore not need to be installed.
+
+\subsubsection{Installing From Source}
+If you are installing the game from source, there is a makefile provided. Just make sure you have the OpenGL and GLUT development libraries on your computer. You can make the executable file by typing,\par
+\texttt{> make -f Makefile}
+\par
+in your terminal. Make sure you are located in the \texttt{src} directory when performing the command.
+
+\subsubsection{Precompiled Package}
+Life is easy. Just extract the \texttt{.tar.gz} to anywhere. 
+
+
+%=================================================================
+\clearpage
+\begin{center}
+\subsection{\textit{Starting \ac\ for the First Time}}
+\end{center}
+\hrule\par
+%=================================================================
+%
+After installation, you can start the game either from the terminal by,
+\par
+\texttt{> ./activate}
+\par
+or by just running the \textbf{activate} file in the installation directory.
+
+After watching through (or skipping by using \texttt{ESC}) the intro, you are presented with the profile screen. Here you can select which profile to use, or create a new one. Proceed with a choice and enter the main menu. From here you can access the main options, explained shortly below,
+
+\begin{table}[ht]
+  \begin{tabular}{ll}
+    \textbf{Start Game} & \textit{Starts a new game from the beginning.} \\
+    \textbf{Continue} & \textit{Continues the game from a save point. This menu item is unavailable until the first save.} \\
+    \textbf{Settings} & \textit{Adjust settings of the game or selecting a different player profile.} \\
+    \textbf{Review Intro} & \textit{Start the Intro from the beginning.} \\
+    \textbf{Quit} & \textit{Exits \ac}
+  \end{tabular}
+\end{table}
+
+
+%=================================================================
+\clearpage
+\begin{center}
+\subsection{\textit{Standard Controls}}
+\end{center}
+\hrule\par
+%=================================================================
+%
+Below is the default keyboard bindings. These settings can be changes from the settings menu.
+
+\begin{table}[ht]
+  \begin{tabular}{lll}
+    \textbf{Command} & \textbf{Key} & \textbf{Description} \\
+    \hline
+    \hline
+    Exit & Esc & \textit{Exit terminals and menus}\\
+    Confirm & Return & \textit{Accepts terminal commands and menu selections}\\
+    Left & A & \textit{Move player to the left}\\
+    Right & D & \textit{Move player to the right}\\
+    Jump & L & \textit{Jump -- Hold for higher jumps}\\
+    Crouch & S & \textit{Crouch to be able to reach narrow spaces}\\
+    Fire & K & \textit{Fire the selected weapon}\\
+    Next Weapon & R & \textit{Selects next available weapon modification}\\
+    Previous Weapon & E & \textit{Selects previous weapon modification}\\
+    Flashlight & F & \textit{Toggles flashlight (if equipped)}\\
+    Enter Terminal & W & \textit{Try to enter a terminal}
+  \end{tabular}
+\end{table}
+
+
+%=================================================================
+\clearpage
+\begin{center}
+\subsection{\textit{Mission Begins -- Playing the First Level}}
+\end{center}
+\hrule\par
+%=================================================================
+%
+The first level is trying to introduce all styles of gameplay to the player at the first time. The briefing informs that the virus that entered the ship computers shut down the shields. This is making the ship burn to much when entering through the earth modified atmosphere.
+
+The virus also triggered the self destruction sequence, which is standard equipment on all intergalaxy explorer boats.
+
+Given the problems at hand, the mission of the first level is to disable the automatic destruct sequence, and escape the ship with an escape pod. This is a quite hard task, but there is no time limit, and the challenge should give a fair introduction to all gameplay elements.
+
+The virus also made the helper droid in the base of the ship to go haywire. There are two solutions on stopping the self destruction, either go into one of the terminals and stop the countdown by entering the abort code (which can be found by reading the contents of a special data disc), or get past \textbf{Helpy}, the droid, to deactivate the destruction hardware.
+
+%=================================================================
+\clearpage
+\begin{center}
+\section{\ac\ Gameplay}
+\end{center}
+%=================================================================
+%
+\begin{quote}
+  \centering
+  \large{\textit{Platforming, Action, Puzzle. It's all part of the game.}}
+\end{quote}
+
+%=================================================================
+%\clearpage
+\begin{center}
+\subsection{\textit{Difficulty Settings}}
+\end{center}
+\hrule\par
+%=================================================================
+%
+There are several difficulty settings to select from when starting a game. The selection is unlike most existing game difficulties. The difficulty setting for \ac\ affects all gameplay elements described on the next page.
+
+The main settings are,
+\begin{enumerate}
+  \item Normal
+  \item High School
+  \item Masters Degree
+  \item Professor
+\end{enumerate}
+
+\clearpage
+\subsubsection{Quick Comparison}
+\begin{table}[ht]
+  \begin{center}
+    \begin{tabular}{l|llll}
+      \textbf{Variable} & \textbf{Normal} & \textbf{High School} & \textbf{Masters Degree} & \textbf{Professor} \\
+      \hline
+      \hline
+      Story Instructions & Clear & Plenty & Some & None \\
+      Platforming & Easy & Normal & Hard & Easy \\
+      Action & Easy & Normal & Hard & Easy \\
+      Puzzle & Very easy & Easy & Challenging & Impossible
+    \end{tabular}
+  \end{center}
+\end{table}
+
+The elaborate the puzzle differences between the different settings one can say that if the target is to open a door by using a password, the \textit{Normal} mode would be to get a data disc (item) and use it on a terminal to open the door. Very much like any key in another game. For the \textit{High School} settings, the same action would require the user to enter a command into the terminal to read the disc. To find out the command is a one time challenge, but will be the same for all terminals which uses this system. The \textit{Masters Degree} might require the player to enter a \texttt{/dev/disc0} folder inside a terminal, open a binary file and extract the password, then use this together with a command. The difference is not that much, but for a user not familiar with terminal environments, this might be hard enough. The task of opening a door at \textit{Professor} level might require some cracking of the code as well, by using the tools available in the terminal. As the toolset varies between terminals, and the cracking require different solutions and sometimes not even a software based solution, this is very hard to figure out at occations, and should only be played by people who likes impossible puzzles and challenges!
+
+A description of all difficulty settings follow on the next few pages.
+
+\clearpage
+\subsubsection{Normal}
+This is the standard gameplay of \ac. The enemies are not very touch, indicating a low level artificial intelligence. The puzzles are easy to figure out, meaning that it's enough to find a certain data disc to operate on a terminal and open a door. Anyone should be able to play through \ac\ on this level, but some elements may be pretty touch anyway.
+
+\subsubsection{High School}
+The \textit{High School} difficulty of \ac\ introduces smarter and stronger enemies. This is the main difference from \textit{Normal} difficulty. However, some puzzles may require some commands given to a terminal in order to operate on the data disc.
+
+\subsubsection{Masters Degree}
+Select this setting if you have the courage of taking on really strong enemies and is pretty familiar with the unix environment to get through the puzzle parts. This is actually the overall hardest difficulty setting of the game.
+
+\subsubsection{Professor}
+For this mode, the enemies are only as strong as in the \textit{Normal} difficulty setting, but the puzzles are very hard. In this mode, there are no given clues on how to proceed through the levels, and the player must figure this out on his/her own. Given this, the \textit{Professor} setting for \ac\ gives more emphasis on the puzzle elements and exploration, and might give a more rewarding experience to smart people.
+
+
+
+
+%=================================================================
+\clearpage
+\begin{center}
+\subsection{\textit{Mixed Gameplay}}
+\end{center}
+\hrule\par
+%=================================================================
+%
+\subsubsection{Platforming}
+The main gameplay is platforming elements. This is all exploration of new grounds, progressing through the story. The difficulty of the platforming increases fast, with the first few levels fairly small and easy to find the way through, with quite obivious puzzle elements. But pretty soon, the becomes a maze of survival, with insane leaps, traps and more. There is a mix of fast paced platforming and slow atmospherical exploration.
+
+\subsubsection{Action}
+Blast your way through the levels, either if it's platforming, shooter etc. Intense action is there to give contrast to the other elements.
+
+\subsubsection{Puzzle}
+My idea for this is mainly hacking sequences. Either if it is cracking a code, password, or hacking terminals to open doors. Some parts may require some really tough thinking when playing on hard difficulty settings.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%=================================================================
+\clearpage
+\begin{center}
+\section{Developing Own Game Content for \ac}
+\end{center}
+%=================================================================
+%
+\begin{quote}
+  \centering
+  \large{\textit{Inteded for online multiplayer use, but I might consider some code changes to make it work for singler player stories as well.}}
+\end{quote}
+
+%=================================================================
+%\clearpage
+\begin{center}
+\subsection{\textit{Creating Maps/Levels}}
+\end{center}
+\hrule\par
+%=================================================================
+%
+The files for a map has to be specified as,
+
+\begin{tabular}{ll}
+\texttt{[mapname]} & \textit{The main mapfile} \\
+\texttt{[mapname]gfx.tga} & \textit{Main map graphics (skin)} \\
+\texttt{[mapname]gbg.tga} & \textit{Background graphics (optional)} \\
+\texttt{[mapname]col.tga} & \textit{Main collision map} \\
+\texttt{[mapname]ext} & \textit{Animated map graphics definitions}
+\end{tabular}
+
+\clearpage
+\subsubsection{Main Mapfile}
+The first 5 lines of the mapfile has to be, in order of appearance,
+\begin{verbatim}
+Level Name
+Author
+Width
+Height
+Music Index
+\end{verbatim}
+\textbf{Level Name} and \textbf{Author} can both be \texttt{128} characters wide. \textbf{Music Index} is an internal index for a song. The \textbf{Width} and \textbf{Height} fields are defined as a number of \texttt{32x32} tiles, so a map of \texttt{1024x1024} pixels would translate to 32 and 32 respectivly. Example mapfile header:
+\begin{verbatim}
+My Cool Map!
+Jiisuki
+32
+64
+3
+\end{verbatim}
+The example above would load the map \emph{My Cool Map!}, created by \emph{Jiisuki}. The map is \texttt{32x64} in tilesize, which is \texttt{1024x2048} pixels in size. The music used is the first song, \emph{Mission Begins}.
+
+\clearpage
+The lines that follow lists all objects on the map. An object is defined by one description line which makes the loading interpreter go into the correct segment. The Object name comes first, and the syntax on the second line. For example,
+\begin{verbatim}
+TERMINAL
+176 118 0 -1 128 42 0
+General Utility Terminal
+> Welcome Line 1
+> Welcome Line 2
+> Welcome Line 3
+\end{verbatim}
+
+\subsubsection{Available Basic Objects}
+\begin{table}[ht]
+  \small
+  \begin{tabular}{lll}
+    \textbf{Object} & \textbf{Syntax} & \textbf{Object Description}\\
+    \hline
+    \hline
+    \texttt{TELEPORT} & \texttt{X Y ToID Key SpawnLeft} &
+    \textit{A teleport. The teleports get a unique ID when created.}\\
+    & & \textit{The first ID is 0, the next is 1 etc. Key specifies if the terminal} \\
+    & & \textit{is locked for input until a Data Disc is collected.} \\
+    & & \textit{SpawnLeft specifies if you spawns at the target teleport on the left side} \\
+    \texttt{SPAWN} & \texttt{X Y Team Time} & \textit{A position where the player starts. A spawn is also a save point.} \\
+    \texttt{TERMINAL} & \texttt{X Y ToID Key W H GfxType} & \textit{A Hacker terminal, see above example on how to define it,} \\
+    & & \textit{as it has more lines than a normal object} \\
+    \texttt{SWITCH} & \texttt{X Y ToID Key GfxType} & \textit{A switch to operate doors, elevators etc.}
+  \end{tabular}
+\end{table}
+
+\clearpage
+\subsubsection{Information Objects and Weapons}
+
+\begin{table}[ht]
+  \small
+  \begin{tabular}{lll}
+    \textbf{Object} & \textbf{Syntax} & \textbf{Object Description}\\
+    \hline
+    \hline
+    \texttt{DISC} & \texttt{X Y ID Respawn} & \textit{Data disc which contain terminal codes and other information.} \\
+    \texttt{BLASTER} & \texttt{X Y InitAmmo Respawn} & \textit{The first weapon of the game.} \\
+    \texttt{GRENADES} & \texttt{X Y InitAmmo Respawn} & \textit{Grenade Launcher modification.} \\
+    \texttt{RAILGUN} & \texttt{X Y InitAmmo Respawn} & \textit{Railgun modification.} \\
+    \texttt{TRAILGUN} & \texttt{X Y InitAmmo Respawn} & \textit{Modification (upgrade) to an existing railgun modification.} \\
+    \texttt{FLASHDISC} & \texttt{X Y Strength} & \textit{A flashdisc used for destroying terminals and open doors.} \\
+  \end{tabular}
+\end{table}
+
+%\clearpage
+\subsubsection{Moving Objects}
+
+\begin{table}[ht]
+  \small
+  \begin{tabular}{lll}
+    \textbf{Object} & \textbf{Syntax} & \textbf{Object Description}\\
+    \hline
+    \hline
+    \texttt{DOOR} & \texttt{X Y Height Dir Type Key} & \textit{A door. Can be given a key needed for opening. Type sets lock type.} \\
+    \texttt{ELEVATOR} & \texttt{X1 Y1 X2 Y2 Speed Type Key} & \textit{Elevator, syntax similar to door.} \\
+  \end{tabular}
+\end{table}
+
+\clearpage
+\subsubsection{Pickup Items and General Upgrades}
+
+\begin{table}[ht]
+  \small
+  \begin{tabular}{lll}
+    \textbf{Object} & \textbf{Syntax} & \textbf{Object Description}\\
+    \hline
+    \hline
+    \texttt{HEALTH} & \texttt{X Y Strength Respawn Time} & \textit{Gives a health replenish.} \\
+    \texttt{BATTERY} & \texttt{X Y Strength Respawn Time} & \textit{Replenish battery power for weapon upgrades.} \\
+    \texttt{ARMOR} & \texttt{X Y Strength Respawn Time} & \textit{Gives some armory upgrade specified by Strength.} \\
+    \texttt{HEARTBEAT} & \texttt{X Y Strength Respawn Time} & \textit{} \\
+    \texttt{CAP} & \texttt{X Y Strength Respawn Time} & \textit{} \\
+    \texttt{AMMOGRENADE} & \texttt{X Y Strength Respawn Time} & \textit{} \\
+  \end{tabular}
+\end{table}
+
+
+
+\clearpage
+\subsubsection{Main Map Graphics (skin)}
+This file contains the graphical overlay for the collision map. The format should be 32-bit TGA, with reference to the Bottom Left and using RLE compression. The last 8 bits (alpha channel) is used for transparency.
+
+\subsubsection{Background Graphics (optional)}
+This is a background image, which should be twice as large as the main map graphics and collision map! The background graphics scrolls slower in the game, so it has to be larger to not disappear when at the edges of the screen. This graphics is optional.
+
+\subsubsection{Main Collision Map}
+This is a background image, which should be twice as large as the main map graphics and collision map! The background graphics scrolls slower in the game, so it has to be larger to not disappear when at the edges of the screen. This graphics is optional.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%=================================================================
+\clearpage
+\begin{center}
+\section{Tips from the Professor}
+\end{center}
+%=================================================================
+%
+\begin{quote}
+  \centering
+  \large{\textit{Need some tips for beating the game at the Professor level? You might find some pointers here!}}
+  
+  \large{\textit{WARNING! SPOILER ALERT!}}
+\end{quote}
+
+%=================================================================
+%\clearpage
+\begin{center}
+\subsection{\textit{Creating Maps/Levels}}
+\end{center}
+\hrule\par
+%=================================================================
+%
+The files for a map has to be specified as,
+
+
+
+\end{document}
+
